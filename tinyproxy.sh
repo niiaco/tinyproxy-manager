@@ -9,6 +9,8 @@ PORT=8888
 proxy_user="admin021"
 proxy_pass="admin021"
 server_ip=$(hostname -I | awk '{print $1}')
+INSTALL_DIR="/usr/local/bin"
+SCRIPT_NAME="tiny"
 
 # Detect package manager (apt or yum)
 detect_pkg_manager() {
@@ -134,6 +136,18 @@ view_logs() {
   read -p "Press Enter to return to menu..."
 }
 
+install_script() {
+  echo "[+] Installing Tinyproxy Manager as system command..."
+  
+  # Copy this script to /usr/local/bin
+  sudo cp "$0" "$INSTALL_DIR/$SCRIPT_NAME"
+  sudo chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
+  
+  echo "[+] Installation complete!"
+  echo "You can now run the manager by typing '$SCRIPT_NAME' in your terminal."
+  exit 0
+}
+
 # Main menu loop
 menu() {
   while true; do
@@ -165,18 +179,9 @@ menu() {
   done
 }
 
-# Check if --install is passed as first argument
+# Check if script is run with git command
 if [[ "$1" == "--install" ]]; then
-  install_tinyproxy
-  exit 0
+  install_script
 else
   menu
-fi
-# Make 'tiny' command available system-wide (if not already set)
-SCRIPT_PATH="$(realpath "$0")"
-LINK_PATH="/usr/local/bin/tiny"
-
-if [[ ! -L "$LINK_PATH" ]]; then
-  sudo ln -s "$SCRIPT_PATH" "$LINK_PATH"
-  echo "[+] 'tiny' command is now available. You can run this tool by typing: tiny"
 fi
