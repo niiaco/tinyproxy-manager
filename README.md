@@ -9,6 +9,7 @@ Run this command to install Tinyproxy with default settings:
 curl -fsSL https://raw.githubusercontent.com/niiaco/tinyproxy-manager/main/tinyproxy.sh | bash -s -- --install
 ```
 
+AFTER INSTALLATION , WHEN EVER YOUR TYPE: tiny , PANEL LOADS,
 NOW REPLACE THIS WITH OUTBOUND OF XUI
 
 ```json
