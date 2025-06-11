@@ -8,8 +8,7 @@ Run this command to install Tinyproxy with default settings:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/niiaco/tinyproxy-manager/main/tinyproxy.sh | bash -s -- --install
 
-
-<pre> ```
+```json
 {
   "log": {
     "access": "none",
@@ -113,4 +112,4 @@ curl -fsSL https://raw.githubusercontent.com/niiaco/tinyproxy-manager/main/tinyp
   },
   "stats": {}
 }
- ``` </pre>
+``` 
