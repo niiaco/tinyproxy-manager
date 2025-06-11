@@ -139,8 +139,8 @@ view_logs() {
 install_script() {
   echo "[+] Installing Tinyproxy Manager as system command..."
   
-  # Copy this script to /usr/local/bin
-  sudo cp "$0" "$INSTALL_DIR/$SCRIPT_NAME"
+  # Download the script directly from GitHub
+  sudo curl -sSL https://raw.githubusercontent.com/niiaco/tinyproxy-manager/main/tinyproxy.sh -o "$INSTALL_DIR/$SCRIPT_NAME"
   sudo chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
   
   echo "[+] Installation complete!"
@@ -179,7 +179,7 @@ menu() {
   done
 }
 
-# Check if script is run with git command
+# Check if script is run with --install argument
 if [[ "$1" == "--install" ]]; then
   install_script
 else
