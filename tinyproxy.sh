@@ -172,3 +172,11 @@ if [[ "$1" == "--install" ]]; then
 else
   menu
 fi
+# Make 'tiny' command available system-wide (if not already set)
+SCRIPT_PATH="$(realpath "$0")"
+LINK_PATH="/usr/local/bin/tiny"
+
+if [[ ! -L "$LINK_PATH" ]]; then
+  sudo ln -s "$SCRIPT_PATH" "$LINK_PATH"
+  echo "[+] 'tiny' command is now available. You can run this tool by typing: tiny"
+fi
