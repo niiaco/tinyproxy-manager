@@ -33,7 +33,7 @@ NOW REPLACE THIS WITH OUTBOUND OF XUI
     "settings": {
       "servers": [
         {
-          "address": "167.71.135.228",
+          "address": "<your-server-ip>",
           "port": 8888,
           "users": [
             {
